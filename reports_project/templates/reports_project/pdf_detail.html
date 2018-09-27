@@ -1,0 +1,17 @@
+{% extends 'reports_project/base.html' %}
+
+{% block content %}
+    <div class="post">
+        
+        <a class="btn btn-default" href="{% url 'pdf_get_file' pk=pdfItem.pk %}">GetFile</a>
+        
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'pdf_edit' pk=pdfItem.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h1>Имя отчёта: {{ pdfItem.report_name }}</h1>
+        <p><b>Формат файла:</b> {{ pdfItem.file_format }}</p>
+        <p><b>Имя шаблона:</b> {{ pdfItem.template_name }}</p>
+        <p><b>Данные в XML:</b> {{ pdfItem.data|linebreaksbr }}</p>
+        <p><b>PdfFile:</b> {{ pdfItem.rawData|linebreaksbr }}</p>
+    </div>
+{% endblock %}

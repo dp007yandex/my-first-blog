@@ -1,0 +1,12 @@
+
+{% extends 'reports_project/base.html' %}
+{% block content %}
+    {% for pdf in pdfItems %}
+        <div class="post">
+            
+            <h1><a href="{% url 'pdf_detail' pk=pdf.pk %}">{{ pdf.report_name }}</a></h1>
+            <p>Формат файла: {{ pdf.file_format }}</p>
+            <p>Имя шаблона: {{ pdf.template_name }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
