@@ -32,7 +32,7 @@ def pdf_get_file(request, pk):
 
     if data.status_code == 200:
         response = HttpResponse(data)
-        response['Content-Type'] = 'application/pdf; charset=utf-8'
+        #response['Content-Type'] = 'application/pdf; charset=utf-8'
         response['Content-Disposition'] = 'attachment; filename=' + pdf.report_name + '.' + pdf.file_format
         pdf.rawData = ""
     else:
